@@ -1,0 +1,13 @@
+:443, your.domain
+route {
+    forward_proxy {
+        basic_auth user1 pass
+        ports     80 443
+        hide_ip
+        hide_via
+        probe_resistance google.com # alternatively you can use a real domain, such as caddyserver.com
+    }
+    file_server {
+        root /srv
+    }
+}
